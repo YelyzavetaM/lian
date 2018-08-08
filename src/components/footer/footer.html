@@ -1,0 +1,38 @@
+{% 
+    set items = [
+    { class: 'fa-facebook-f', href: '#' },
+    { class: 'fa-google-plus-g', href: '#' },
+    { class: 'fa-twitter', href: '#' },
+    { class: 'fa-linkedin-in', href: '#' },
+    { class: 'fa-twitter', href: '#' },
+    { class: 'fa-pinterest-p', href: '#' },
+    { class: 'fa-instagram', href: '#' }
+    ]
+%}
+<footer class="footer">
+
+    <div class="logo-footer">
+        {% include 'components/logo/logo.html' %}
+    </div>
+
+    <nav class="nav">
+        <ul class="nav__list-footer">
+            
+            {% for item in items %}
+            <li class="nav__item nav__item-footer">
+                <a href={{item.href}} class="nav__link nav__link-footer">
+                        <i class="fab {{ item.class }}"></i>
+                </a>
+            </li>
+            {% endfor %}
+
+        </ul>
+
+    </nav>
+
+    <div class="rights">
+        <p class="rights__description">&copy;2016 <span>MULITIX THEME</span> BY THEMEFORCES. ALL RIGHTS RESERVED</p>
+    </div>
+
+
+</footer>

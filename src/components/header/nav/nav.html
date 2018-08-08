@@ -1,0 +1,28 @@
+{% 
+    set items = [
+    { title: 'Home', path: 'index.html', active: true },
+    { title: 'About', href: '#' },
+    { title: 'Portfolio', href: '#' },
+    { title: 'Blog', href: '#' },
+    { title: 'Contact', path: 'contacts.html' }
+    ]
+%}
+
+<nav class="nav">
+    <ul class="nav__list">
+        {% for item in items %}
+            
+            <!-- // исправить active -->
+            
+            <li class="nav__item-header {% if item.active === true %} active {% endif %}"> 
+                <a href="{{item.path}}" class="nav__link nav__link-header">
+                    {{ item.title }}
+                </a>
+            </li>
+        {% endfor %}
+
+        <li class="nav__item-header-search">
+            <i class="fas fa-search"></i>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,130 @@
+.container-fluid {
+    margin: 0;
+    padding: 0;
+}
+
+.hero__slider {
+    position: relative;
+    z-index: 99;
+}
+
+.hero__title-wrap {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero__title-wrap-home {
+    background: url('../img/slider2.png');
+}
+
+.hero__title-wrap-about {
+    background: url('../img/slider1.png');
+}
+
+.hero__slider-btn {
+    display: block;
+    background: none;
+    font-size: 32px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0;
+    border: none;
+    z-index: 99;
+}
+
+.hero__slider-btn--prev {
+    right: 95%;
+}
+
+.fas {
+    font-size: 32px;
+    width: 42px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.fa-angle-left {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+
+.hero__slider-btn--next {
+    left: 95%;
+}
+
+.fa-angle-right {
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.slick-arrow.slick-hidden {
+    display: block;
+}
+
+.title-wrap {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero__title {
+    text-transform: uppercase;
+    @include rem(48);
+    color: #fff;
+    font-weight: 300;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 700px;
+    height: 65px;
+    background-color: #000;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.hero__subtitle {
+    color: #000;
+    @include rem(18);
+    font-weight: 300;
+    line-height: 24px;
+    letter-spacing: 3px;
+    margin-top: 40px;
+}
+
+
+.hero__slider {
+   
+    .slick-dots {
+            bottom: 0;
+            
+            .slick-active button {
+                border: 4px solid #000;
+                background: #fff;
+                width: 7px;
+                height: 6px;
+              }
+    
+              button {
+                width: 7px;
+                height: 6px;
+                background: #fff;
+                border-radius: 50%;
+                display: block;
+                &:before {
+                  content: '';
+                }
+              }
+        }
+}

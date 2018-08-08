@@ -1,0 +1,35 @@
+{% 
+    set items = [
+    { title: 'All', href: '#' },
+    { title: 'Logo', href: '#' },
+    { title: 'Mobile app', href: '#' },
+    { title: 'Wordpress', href: '#' },
+    { title: 'Web design', href: '#' },
+    { title: 'UI/UX', href: '#' },
+    { title: 'Branding', href: '#' }
+    ]
+%}
+
+
+<div class="gallery">
+
+    <nav class="nav nav-gallery">
+        <ul class="nav__list nav__list-gallery ">
+            {% for item in items %}
+                <li class="nav__item nav__item-gallery">
+                    <a href="{{item.href}}" class="nav__link nav__link-gallery">
+                        {{ item.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+
+    <div class="gallery-images">
+
+    </div>
+
+    <div class="btn-wrap">
+        <button class="btn">load more</button>
+    </div>
+</div>
