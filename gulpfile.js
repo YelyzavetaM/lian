@@ -4,7 +4,7 @@ const csso = require('gulp-csso');
 const maps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
 const autoprefixer = require('gulp-autoprefixer');
-const browserSync = require('browser-sync');
+const browserSync = require('browser-sync').create();
 const nunjucks = require('gulp-nunjucks-render');
 const imagemin = require('gulp-imagemin');
 const watch = require('gulp-watch');
@@ -14,17 +14,22 @@ const babel = require('babelify');
 const minifyJS = require('gulp-uglify');
 
 gulp.task('css', function() {
-  return gulp.src('src/main.scss')
+  return gulp
+    .src('src/main.scss')
     .pipe(plumber())
     .pipe(maps.init())
     .pipe(scss())
-    .pipe(autoprefixer({
+    .pipe(
+      autoprefixer({
       browsers: ['last 5 versions']
-    }))
+    })
+  )
     .pipe(csso())
-    .pipe(rename({
+    .pipe(
+      rename({
       suffix: '.min'
-    }))
+    })
+  )
     .pipe(maps.write())
     .pipe(plumber.stop())
     .pipe(gulp.dest('dist/css'))
@@ -32,7 +37,8 @@ gulp.task('css', function() {
 });
 
 gulp.task('html', function() {
-  return gulp.src('src/pages/*.html')
+  return gulp
+    .src('src/pages/*.html')
     .pipe(plumber())
     .pipe(nunjucks({
       path: 'src/'
@@ -43,7 +49,8 @@ gulp.task('html', function() {
 });
 
 gulp.task('img', function() {
-  return gulp.src('src/assets/img/**/*.*')
+  return gulp
+    .src('src/assets/img/**/*.*')
     .pipe(imagemin([
       imagemin.gifsicle({interlaced: true}),
       imagemin.jpegtran({progressive: true}),
@@ -59,7 +66,8 @@ gulp.task('img', function() {
 });
 
 gulp.task('js', function () {
-  return gulp.src('src/index.js')
+  return gulp
+  .src('src/index.js')
     .pipe(plumber())
     .pipe(browserify({
       debug: true,
@@ -74,7 +82,7 @@ gulp.task('js', function () {
 });
 
 gulp.task('reload', function() {
-  browserSync({
+  browserSync.init({
     server: {
       baseDir: 'dist/'
     },
@@ -91,5 +99,5 @@ gulp.task('watch', ['reload', 'css', 'html', 'img', 'js', 'fonts'], function() {
   watch('src/**/*.html', () => gulp.start('html'));
   watch('src/**/*.scss', () => gulp.start('css'));
   watch('src/**/*.js', () => gulp.start('js'));
-  gulp.watch('dist/*.html', browserSync.reload());
+  gulp.watch('dist/*.html').on('change', browserSync.reload());
 });
