@@ -1,0 +1,34 @@
+{%
+    set items = [
+    { imgPath = 'img/values-img1.png', 
+    title = 'Who we are', 
+    description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, velit adipisci minima facere sed officiis nam illo optio dicta cumque molestiae doloribus'},
+    
+    { imgPath = 'img/values-img2.png', 
+    title = 'Our vision', 
+    description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, velit adipisci minima facere sed officiis nam illo optio dicta cumque molestiae doloribus'},
+    
+    { imgPath = 'img/values-img3.png', 
+    title = 'Our vision', 
+    description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, velit adipisci minima facere sed officiis nam illo optio dicta cumque molestiae doloribus'},
+    ]
+%}
+
+
+<div class="container">
+    <div class="values__header">
+        <h2 class="values__header--title">our values</h2>
+        <p class="values__header--descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, velit adipisci minima facere sed officiis nam illo optio dicta cumque molestiae doloribus. Accusantium omnis aliquam dolorem, commodi iusto ducimus minima.</p>
+    </div>
+
+    <div class="cards">
+        {% for item in items %}
+
+        <img src="{{item.imgPath}}">
+        <span class="values__title">{{ item.title }}</span>
+        <span class="values__description">{{ item.description }}</span>
+
+        {% endfor %}
+    </div>
+
+</div>
